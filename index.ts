@@ -1,5 +1,18 @@
 import { CheckoutItem } from "./Interfaces/Item.interface";
 
+const specialOffers = [
+    {
+        sku: 'A99',
+        qty: 3,
+        price: 130,
+    },
+    {
+        sku: 'B15',
+        qty: 2,
+        price: 45,
+    }
+]
+
 export const checkout = (items: Array<CheckoutItem>) => {
     let total: number = 0;
 
@@ -8,7 +21,11 @@ export const checkout = (items: Array<CheckoutItem>) => {
     }
 
     items.forEach(item => {
-        total += calculateTotal(item.price, item.qty);
+        let specialOffer = checkForSpecialOffer(item.sku);
+
+        if (!specialOffer) {
+            total += calculateTotal(item.price, item.qty);
+        }
     });
 
     return {
@@ -18,4 +35,8 @@ export const checkout = (items: Array<CheckoutItem>) => {
 
 const calculateTotal = (price: number, total: number) => {
     return price * total;
+}
+
+const checkForSpecialOffer = (sku: string) => {
+    return specialOffers.find(specialOffer => specialOffer.sku === sku);
 }
