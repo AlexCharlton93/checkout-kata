@@ -14,7 +14,7 @@ export const checkout = (items: Array<CheckoutItem>) => {
         if (!specialOffer) {
             total += calculateTotal(item.price, item.qty);
         } else {
-            total += specialOffer.price
+            total += specialOffer.price;
         }
     });
 

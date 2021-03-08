@@ -7,6 +7,7 @@ describe("checkout", () => {
     });
 
     test("Should calculate the correct total", () => {
+        // Does not match any special offers
         const input = [
             {
                 sku: 'A99',
