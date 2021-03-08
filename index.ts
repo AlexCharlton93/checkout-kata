@@ -5,7 +5,9 @@ export const checkout = (items: Array<CheckoutItem>) => {
     let total: number = 0;
 
     if (!items) {
-        throw new Error("No items provided at check out");
+        return new Promise((_, reject) => { 
+            reject("No items provided at check out");
+        });
     }
 
     items.forEach(item => {
