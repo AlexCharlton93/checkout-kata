@@ -10,23 +10,25 @@ describe("checkout", () => {
         const input = [
             {
                 sku: 'A99',
+                price: 50,
                 qty: 2,
             }
         ];
         const result = checkout(input);
-        expect(result).toEqual(100);
+        expect(result).toEqual({total: 100});
     });
 
     test("Should calculate the correct total if a special offer is applied", () => {
         const input = [
             {
                 sku: 'A99',
+                price: 50,
                 qty: 3,
             }
         ];
         const result = checkout(input);
 
         // 3 for 130 special offer should be applied
-        expect(result).toEqual(130);
+        expect(result).toEqual({total: 130});
     });
 });

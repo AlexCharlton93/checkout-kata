@@ -1,5 +1,6 @@
 export interface CheckoutItem {
     sku: string;
+    price: number;
     qty: number;
 }
 
