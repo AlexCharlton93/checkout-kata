@@ -1,17 +1,5 @@
 import { CheckoutItem } from "./Interfaces/Item.interface";
-
-const specialOffers = [
-    {
-        sku: 'A99',
-        qty: 3,
-        price: 130,
-    },
-    {
-        sku: 'B15',
-        qty: 2,
-        price: 45,
-    }
-]
+import { specialOffers } from "./data/specialOffers";
 
 export const checkout = (items: Array<CheckoutItem>) => {
     let total: number = 0;
