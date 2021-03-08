@@ -9,10 +9,12 @@ export const checkout = (items: Array<CheckoutItem>) => {
     }
 
     items.forEach(item => {
-        let specialOffer = checkForSpecialOffer(item.sku);
+        let specialOffer = checkForSpecialOffer(item.sku, item.qty);
 
         if (!specialOffer) {
             total += calculateTotal(item.price, item.qty);
+        } else {
+            total += specialOffer.price
         }
     });
 
@@ -25,6 +27,6 @@ const calculateTotal = (price: number, total: number) => {
     return price * total;
 }
 
-const checkForSpecialOffer = (sku: string) => {
-    return specialOffers.find(specialOffer => specialOffer.sku === sku);
+const checkForSpecialOffer = (sku: string, qty: number) => {
+    return specialOffers.find(specialOffer => specialOffer.sku == sku && qty >= specialOffer.qty);
 }
