@@ -9,7 +9,7 @@ const invokeCheckout = () => {
             }
         ]));
     } catch (e) {
-        console.log(e);
+        console.log(e.message);
     }
 }
 

@@ -3,7 +3,7 @@ import { checkout } from "./index";
 describe("checkout", () => {
     test("Should throw an error if no goods are passed to the checkout", () => {
         const items = undefined;
-        expect(() => checkout(items)).rejects.toThrow(`No items provided at check out`);
+        expect(() => checkout(items)).rejects.toThrow("No items provided at check out");
     });
 
     test("Should calculate the correct total", () => {
