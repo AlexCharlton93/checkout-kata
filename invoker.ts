@@ -5,7 +5,7 @@ const invokeCheckout = () => {
         console.log(checkout([
             {
                 sku: 'A99',
-                quantity: 2,
+                qty: 2,
             }
         ]));
     } catch (e) {
